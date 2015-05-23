@@ -1,12 +1,8 @@
-<?php
 
-/* 
- * @desc sorts an array with multiple criteria
- * @param arr $weightList -> the weight of each key
- * @param arr $obj  -> the objects which you want to sort
- * @retunr arr -> the new sorted array
- * 
- */
+
+ /* 
+  * @desc sorts an array with multiple criteria
+  */
 
 
 class SortByWeight {
@@ -14,66 +10,82 @@ class SortByWeight {
     private $weightList = [];
     private $objList    = [];
     
+    /*
+     * @desc intialises the class
+     * @param arr $weightList -> the weight of each key
+     * @param arr $obj  -> the objects which you want to sort
+     */
+    
     public function __construct(array $weightList,array $obj) {
-        
-    $this->weightList = (array) $weightList;
-    $this->objList    = (array) $obj;
-        
-        
-}
-    
-    public function weightSort()
-    
-{   
-        
-    
-    $sortObj = $this->objList; 
-    uasort($sortObj,array($this,'multiple_order'));
-  
-    
-   return $sortObj;
-}
 
-private function multiple_order($a, $b)
-{
-  $list = $this->weightList;
-    
-  foreach ($list as $current)
-  {
-          
-    if (!isset($a[$current]) || !isset($b[$current])) 
-    {
+        $this->weightList = (array) $weightList;
+        $this->objList    = (array) $obj;
         
-        if (!isset($a[$current]) && ($b[$current] !== 0)) return 1;
-        if (!isset($b[$current]) && ($a[$current] !== 0)) return -1;
-       
-    } else {
         
-        if ($a[$current] === $b[$current]) {
-            
-             continue;
-             
-         } else {
-             
-             return  $a[$current] > $b[$current] ? -1 : 1;
-             
-         }
-          
-    }
-       
+    } 
     
     
-   }
+   /*
+    * @desc sorts the array with the given criteria
+    * return $sortObj -> the new sorted Array
+    */
+    
+    public function weightSort() {   
+        
+    
+        $sortObj = $this->objList; 
+        uasort($sortObj,array($this,'multiple_order'));
+
+
+       return $sortObj;
    
-   return 0;
+    }
+    
+    /*
+     * @desc private function for the sorting process
+     */
 
- 
-}
+    private function multiple_order($a, $b)
+    {
+      $list = $this->weightList;
+
+      foreach ($list as $current)
+      {
+
+        if (!isset($a[$current]) || !isset($b[$current])) 
+        {
+
+            if (!isset($a[$current]) && ($b[$current] !== 0)) return 1;
+            if (!isset($b[$current]) && ($a[$current] !== 0)) return -1;
+
+        } else {
+
+            if ($a[$current] === $b[$current]) {
+
+                 continue;
+
+             } else {
+
+                 return  $a[$current] > $b[$current] ? -1 : 1;
+
+             }
+
+        }
+
+
+
+       }
+
+       return 0;
+
+
+    }
     
     
     
     
-}
+} //End of the Class
+
 
 //Example: Olympic Games
 
@@ -94,5 +106,3 @@ private function multiple_order($a, $b)
     echo "<pre>";
     print_r($Instanz->weightSort());
     echo "</pre>";
-
-
