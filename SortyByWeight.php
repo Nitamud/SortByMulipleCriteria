@@ -1,4 +1,4 @@
-
+<?php
 
  /* 
   * @desc sorts an array with multiple criteria
@@ -106,3 +106,5 @@ class SortByWeight {
     echo "<pre>";
     print_r($Instanz->weightSort());
     echo "</pre>";
+    
+    ?>
