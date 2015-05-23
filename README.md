@@ -32,6 +32,48 @@ Example: To  take  take up the example from above again, this could look like:
 
 Here i will show some simple examples of how to use this class the right way :)
 
+Lets start with an easy medal table for the Olympic Games. You may have the medals each team
+achieved, but now you have to sort them. 
+
+Example Data:
+
+ ['Austria' =>  ['g' => 1, 's' => 25],
+             'Germany' => ['s' => 26, 'b' => 24],
+             'Canada'  => ['g' => 0, 's' => 10],
+             'USA' => ['g' => 2],
+             'Italy' => ['g' => 1, 's' => 25, 'b' => 1]
+
+            ];
+
+
+Gold should have an heigher weight than Silver and Bronze should
+be lower valued than Silver.
+
+So we get: Gold(g) > Silver(s) > Bronze(b)
+
+The weight criteria to pass would now be ['g','S','b']
+
+Now lets pass this parameters to the class construtor.
+ $test = ['Austria' =>  ['g' => 1, 's' => 25],
+             'Germany' => ['s' => 26, 'b' => 24],
+             'Canada'  => ['g' => 0, 's' => 10],
+             'USA' => ['g' => 2],
+             'Italy' => ['g' => 1, 's' => 25, 'b' => 1]
+
+            ];
+            
+ $weightList = ['g','s','b'];           
+ $Instanz = new SortByWeight($weightList,$test);
+ 
+ Now we have to call the ->weightSort() function to get our new sorted array:
+ 
+  echo "<pre>";
+    print_r($Instanz->weightSort());
+    echo "</pre>";
+    
+I hope i could help some of you :)
+
+
 
 
 
