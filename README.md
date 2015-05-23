@@ -10,7 +10,7 @@ class wich takes this part over.
 
 <h2>How to use this class: </h2>
 
-The constructor of this class needs two informations from you. The first parameter should be an array , which shows the Weight of the criteria. ['most-important','important','least-important',....] (you can have as much criteria as you like)
+The constructor of this class needs two informations from you. The first parameter should be an array , which shows the Weight of the criteria. [ 'most-important','important','least-important',.... ] (you can have as much criteria as you like)
 
 Example: You want to sort by Country and then secondly you want to sort by Age.
 
